@@ -46,6 +46,7 @@ namespace ARM
 namespace TLM
 {
 
+/* we must decleare BaseMasterSocket here, or we will get bug */
 template <typename Types>
 class BaseMasterSocket;
 

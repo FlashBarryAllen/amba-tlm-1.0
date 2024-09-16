@@ -10,20 +10,20 @@ using namespace tlm;
 using namespace sc_core;
 using namespace ARM::AXI4;
 
-tlm_sync_enum Monitor::nb_transport_fw(Payload& payload, Phase& phase)
+tlm_sync_enum Monitor::nb_transport_fw(int id, Payload& payload, Phase& phase)
 {
     Phase prev_phase = phase;
-    tlm_sync_enum reply = master.nb_transport_fw(payload, phase);
+    tlm_sync_enum reply = master.nb_transport_fw(id, payload, phase);
 
     print_payload(payload, prev_phase, reply, phase);
 
     return reply;
 }
 
-tlm_sync_enum Monitor::nb_transport_bw(Payload& payload, Phase& phase)
+tlm_sync_enum Monitor::nb_transport_bw(int id, Payload& payload, Phase& phase)
 {
     Phase prev_phase = phase;
-    tlm_sync_enum reply = slave.nb_transport_bw(payload, phase);
+    tlm_sync_enum reply = slave.nb_transport_bw(id, payload, phase);
 
     print_payload(payload, prev_phase, reply, phase);
 
